@@ -19,6 +19,10 @@
    http://CQiNet.sourceforge.net
 
    $Log: ports.cpp,v $
+   Revision 1.29  2013/05/13 16:41:06  beta2k
+
+   Added patches from Kristoff - ON1ARF for sysfs GPIO access for PTT
+
    Revision 1.28  2012/12/09 16:33:31  wb6ymh
    Delete parallel port object if OpenParallelPort fails.  Prevents later
    attempt to unkey transmitter via unopended parallel port.
@@ -399,6 +403,8 @@ CPort::CPort()
    VoxHoldTime = 0;
    VoxTripDelay = 0;
    TxKeyMethod = 0;
+// ON1ARF
+	GpioSysClassId = -1;
    RxCosMethod = 0;
    SerialBaudRate = 2400;
    DTMFPollTime = 50;
@@ -513,6 +519,9 @@ CPort::CPort()
    udev = NULL;
    UsbDevType = 0;
 #endif
+
+// ON1ARF
+	gpiosc_fd=-1;
 };
 
 CPort::~CPort()
@@ -543,6 +552,10 @@ CPort::~CPort()
 #ifdef USB_SUPPORT
    UsbShutdown();
 #endif
+
+	if (gpiosc_fd >= 0) {
+		close(gpiosc_fd);
+	}; // end if
 }
 
 void CPort::KeyTx(int bKey)
@@ -597,6 +610,50 @@ void CPort::KeyTx(int bKey)
          UsbKeyRadio(bKey);
 #endif
          break;
+
+		case 7: // GPIO /sys/class/gpio/... method
+					// ON1ARF
+
+			// try opening file to /sys/class/... if not yet done
+			if (gpiosc_fd < 0) {
+				snprintf(gpiosc_fname,40,"/sys/class/gpio/gpio%d/value",GpioSysClassId);
+
+				gpiosc_fd = open (gpiosc_fname, O_WRONLY | O_NDELAY, 0);
+
+				if (gpiosc_fd < 0) {
+					LOG_ERROR(("%s: cannot open GPIO device %s for writing: %d (%s): %s",__FUNCTION__, gpiosc_fname, errno, strerror(errno)));
+				}; // end if
+				
+			}; // end if
+
+			// write to gpio device if possible
+			if (gpiosc_fd >= 0) {
+				int ret;
+
+				const char on = '1';
+				const char off = '0';
+
+				if((bKey && !InvertPTT) || (!bKey && InvertPTT)) {
+					// turn ON
+					lseek(gpiosc_fd,0,SEEK_SET);
+					ret=write(gpiosc_fd,&on,1);
+				} else {
+					// turn OFF
+					lseek(gpiosc_fd,0,SEEK_SET);
+					ret=write(gpiosc_fd,&off,1);
+				}; // end else - if
+                        
+				if (!ret) {
+					// something went wrong
+					LOG_ERROR(("%s: Error write to GPIO file %s failed. Reason %d (%s)",__FUNCTION__, gpiosc_fname, errno, strerror(errno)));
+				}; // end if
+
+
+				
+			}; 
+
+
+			break;
    }
 }
 
@@ -1075,6 +1132,7 @@ void CPort::Vox(int Samples)
       VoxSamples = VoxAveTemp = 0;
       if(VoxAveLevel > VoxThreshold) {
          LastVoxTrip = TimeNow;
+D2PRINTF(("V"));
          if(!bRxActive && (Debug & DLOG_COS_CTCSS)) {
             LOG_ERROR(("%s: AveLevel: %d/%d\n",__FUNCTION__,VoxAveLevel,
                        VoxThreshold));
@@ -2330,12 +2388,26 @@ int CPort::EndPointInit()
        4 - DTR
        5 - USB Audio dongle GPIO
        6 - PCF8754 I2C expander on iMic
+
+// ON1ARF
+		7 - /sys/class/gpio/gpioXX/... GPIO writing
+
    */
-      if(TxKeyMethod < 0 || TxKeyMethod > 6) {
+      if(TxKeyMethod < 0 || TxKeyMethod > 7) {
          LOG_ERROR(("%s: TxKeyMethod %d is invalid\n",__FUNCTION__,TxKeyMethod));
          Ret = ERR_CONFIG_FILE;
          break;
-      }
+      };
+
+
+		// ON1ARF
+		// GpioSysClassId should be set (i.e. != -1) for TxKeyMethod 7
+		if ((TxKeyMethod == 7) && (GpioSysClassId < 0)) {
+         LOG_ERROR(("%s: GpioSysClassId not set for TxKeyMethod 7\n",__FUNCTION__));
+         Ret = ERR_CONFIG_FILE;
+         break;
+		}; // end if
+
 
       /*
       RxCosMethod:

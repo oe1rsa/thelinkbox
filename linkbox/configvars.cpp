@@ -19,6 +19,10 @@
    http://CQiNet.sourceforge.net
 
    $Log: configvars.cpp,v $
+   Revision 1.40  2013/05/13 16:41:06  beta2k
+
+   Added patches from Kristoff - ON1ARF for sysfs GPIO access for PTT
+
    Revision 1.39  2012/12/09 16:27:41  wb6ymh
    1. Removed old chan_rptdir style Asterisk support variables AsteriskIP,
    AsteriskBind2IP, AsteriskDesc, AsteriskPort, and AsteriskEnable.
@@ -659,6 +663,8 @@ struct config_entry ConfigVars[] = {
    { "VoxHoldTime", "%d", CLASS_VAR(VoxHoldTime,0)},
    { "VoxTripDelay", "%d", CLASS_VAR(VoxTripDelay,0)},
    { "TxKeyMethod", "%d", CLASS_VAR(TxKeyMethod,CON_FLG_REQUIRED)},
+// ON1ARF
+   { "GpioSysClassId", "%d", CLASS_VAR(GpioSysClassId,0)},
    { "RxCosMethod", "%d", CLASS_VAR(RxCosMethod,CON_FLG_REQUIRED)},
    { "DtmfMethod", "%d", CLASS_VAR(DtmfMethod,CON_FLG_REQUIRED)},
    { "RxCtcssMethod", "%d", CLASS_VAR(RxCtcssMethod,0)},

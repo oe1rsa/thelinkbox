@@ -1,4 +1,4 @@
-; $Id: port.conf.sample,v 1.21 2010/11/17 05:04:12 wb6ymh Exp $
+; $Id: port.conf.sample,v 1.22 2013/05/13 16:41:05 beta2k Exp $
 ;
 ; This file shows all configuration variables for ports for reference.  
 ; Not all of the variables are meaningfull for all hardware configurations.
@@ -29,6 +29,7 @@ CreatePort = 2meters
 ; 4 - DTR
 ; 5 - USB Audio dongle GPIO
 ; 6 - PCF8754 I2C expander on iMic
+; 7 - GPIO via /sys/class/gpio interface
 TxKeyMethod = 4
 
 ; The following variable selects the method thelinkbox will use to determine

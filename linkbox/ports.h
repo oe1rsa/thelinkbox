@@ -19,6 +19,10 @@
    http://CQiNet.sourceforge.net
 
    $Log: ports.h,v $
+   Revision 1.27  2013/05/13 16:41:06  beta2k
+
+   Added patches from Kristoff - ON1ARF for sysfs GPIO access for PTT
+
    Revision 1.26  2010/11/20 15:16:33  wb6ymh
    Added SetTxPower, Write8754 prototypes.
 
@@ -196,6 +200,8 @@ public:
    int VoxHoldTime;
    int VoxTripDelay;
    int TxKeyMethod;
+// ON1ARF
+	int GpioSysClassId;
    int RxCosMethod;
    int RxCtcssMethod;
    int TxCtcssMethod;
@@ -378,6 +384,40 @@ private:
    void DoPolls();
    void checkCTCSS(void);
    void Write8754(char Data);
+
+// ON1ARF
+// gpiosc = GPIO /sys/class/gpio methode of accessing GPIO pins
+
+// Use the /sys/class/gpio kernel-drivers to do GPIO operations.
+// The application assumes that the kernel-driver filestructure has
+// been correctly initialised and preconfigured
+
+// E.g. on a raspberry pi, the initialion to write data to GPIO pin 17
+// (i.e. the 11th (!!!) pin of the GPIO pins of the RPi) requires root
+// priviledges and can be does as follows:
+
+// # echo "17" > /sys/class/gpio/export
+// (This will create a directory /sys/class/gpio/gpio17)
+// # echo "out" > /sys/class/gpio/gpio17/direction
+// # chmod 666 /sys/class/gpio/gpio17/value
+
+// Note, if the proper file-priviledges are set on
+// /sys/class/gpio/gpioXX/value, reading or writing gpio data
+// does not require root access
+
+// The status of the GPIO pin can be set as follows:
+// $ echo "0" > /sys/class/gpio/gpio17/value
+// $ echo "1" > /sys/class/gpio/gpio17/value
+
+// to read / write gpio pins of a file that is already open, first
+// reset the file-pointer to the beginning of the file using
+// lseek(fd,0,FD_SET);
+
+	int gpiosc_init;
+	char gpiosc_fname[40];
+	int gpiosc_fd;
+
+
 };
 
 extern Node *CurrentNode;
