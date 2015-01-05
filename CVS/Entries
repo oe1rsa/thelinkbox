@@ -1,0 +1,27 @@
+/COPYING/1.1.1.1/Sat Apr  7 23:55:39 2007//Ttbl_v0_53
+/ChangeLog/1.33/Sun Dec  9 18:57:52 2012//Ttbl_v0_53
+/Makefile.am/1.9/Thu Jan 14 19:36:21 2010//Ttbl_v0_53
+/README/1.13/Sun Dec  9 19:03:48 2012//Ttbl_v0_53
+/README.CVS/1.1.1.1/Sat Apr  7 23:55:39 2007//Ttbl_v0_53
+/SCRIPTING.txt/1.5/Tue Dec 30 20:13:01 2008//Ttbl_v0_53
+/TODO/1.17/Fri Jul  3 18:17:19 2009//Ttbl_v0_53
+/bootstrap/1.1.1.1/Sat Apr  7 23:55:39 2007//Ttbl_v0_53
+/cm108.conf.sample/1.10/Sat Feb 14 18:23:08 2009//Ttbl_v0_53
+/configure.in/1.37/Sun Dec  9 18:57:52 2012//Ttbl_v0_53
+/iMic.conf.sample/1.9/Sat Feb 14 18:23:08 2009//Ttbl_v0_53
+/irlp.conf.sample/1.8/Sat Feb 14 18:23:08 2009//Ttbl_v0_53
+/port.conf.sample/1.21/Wed Nov 17 05:04:12 2010//Ttbl_v0_53
+/rigblaster.conf.sample/1.9/Wed Nov 17 05:04:46 2010//Ttbl_v0_53
+/tlb.cmds.sample/1.3/Sun Sep 13 20:15:50 2009//Ttbl_v0_53
+/tlb.conf.sample/1.21/Sun Dec  9 18:57:52 2012//Ttbl_v0_53
+/voip.conf.sample/1.5/Tue Sep 15 17:04:13 2009//Ttbl_v0_53
+/wb2rem.conf.sample/1.8/Sat Feb 14 18:23:08 2009//Ttbl_v0_53
+D/FreeBSD////
+D/RedHat////
+D/adpcm////
+D/hrprof////
+D/linkbox////
+D/openwrt////
+D/scripts////
+D/socket////
+D/soundmodem////

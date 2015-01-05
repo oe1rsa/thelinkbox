@@ -1,0 +1,21 @@
+/AUTHORS/1.1.1.1/Sat Apr  7 22:28:00 2007//Ttbl_v0_53
+/COPYING/1.1.1.1/Sat Apr  7 22:28:00 2007//Ttbl_v0_53
+/DueDiligence/1.1.1.1/Sat Apr  7 22:27:59 2007//Ttbl_v0_53
+/Makefile.am/1.2/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/README/1.1.1.1/Sat Apr  7 22:28:00 2007//Ttbl_v0_53
+/README.1ST/1.1.1.1/Sat Apr  7 22:28:00 2007//Ttbl_v0_53
+/bit_operations.h/1.1/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/bitstream.c/1.1/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/bitstream.h/1.1/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/dc_restore.h/1.1/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/dtmf.c/1.1.1.1/Sat Apr  7 22:27:59 2007//Ttbl_v0_53
+/dtmf.h/1.1.1.1/Sat Apr  7 22:27:59 2007//Ttbl_v0_53
+/g711.h/1.1/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/g726.c/1.1/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/g726.h/1.1/Thu Nov 11 05:44:26 2010//Ttbl_v0_53
+/super_tone_rx.h/1.1.1.1/Sat Apr  7 22:27:59 2007//Ttbl_v0_53
+/telephony.h/1.1.1.1/Sat Apr  7 22:27:59 2007//Ttbl_v0_53
+/tone_detect.c/1.1.1.1/Sat Apr  7 22:27:59 2007//Ttbl_v0_53
+/tone_detect.h/1.1.1.1/Sat Apr  7 22:28:00 2007//Ttbl_v0_53
+/tone_generate.h/1.1.1.1/Sat Apr  7 22:27:59 2007//Ttbl_v0_53
+D

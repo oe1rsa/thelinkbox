@@ -1,0 +1,21 @@
+/Makefile.am/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/add.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/code.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/config.h.win32/1.1.1.1/Sun Oct  6 16:40:28 2002//Ttbl_v0_53
+/debug.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/decode.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_create.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_decode.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_destroy.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_encode.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_explode.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_implode.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_option.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/gsm_print.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/long_term.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/lpc.c/1.1.1.1/Sun Oct  6 16:40:28 2002//Ttbl_v0_53
+/preprocess.c/1.1.1.1/Sun Oct  6 16:40:27 2002//Ttbl_v0_53
+/rpe.c/1.1.1.1/Sun Oct  6 16:40:28 2002//Ttbl_v0_53
+/short_term.c/1.1.1.1/Sun Oct  6 16:40:28 2002//Ttbl_v0_53
+/table.c/1.1.1.1/Sun Oct  6 16:40:28 2002//Ttbl_v0_53
+D
