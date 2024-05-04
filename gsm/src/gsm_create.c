@@ -4,7 +4,7 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
-static char	ident[] = "$Header: /home/roland/tmp/cqinet-cvs/gsm/src/gsm_create.c,v 1.1.1.1 2002/10/06 16:40:27 wb6ymh Exp $";
+static char	ident[] = "$Header: /cvsroot/cqinet/gsm/src/gsm_create.c,v 1.1.1.1 2002/10/06 16:40:27 wb6ymh Exp $";
 
 #ifndef _WIN32
 	#include	"config.h"

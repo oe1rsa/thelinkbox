@@ -4,7 +4,7 @@
  * details.  THERE IS ABSOLUTELY NO WARRANTY FOR THIS SOFTWARE.
  */
 
-/*$Header: /home/roland/tmp/cqinet-cvs/gsm/inc/gsm.h,v 1.2 2007/11/26 06:56:33 wb6ymh Exp $*/
+/*$Header: /cvsroot/cqinet/gsm/inc/gsm.h,v 1.2 2007/11/26 06:56:33 wb6ymh Exp $*/
 
 #ifndef GSM_H
 #define GSM_H
